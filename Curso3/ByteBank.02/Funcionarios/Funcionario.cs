@@ -15,7 +15,7 @@ namespace ByteBank_02.Funcionarios
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; private set; }
-        public double Salario { get; set; }
+        public double Salario { get; protected set; }
 
         public abstract double GetBonificacao();
         public abstract void AumentarSalario();
