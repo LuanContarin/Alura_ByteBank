@@ -1,4 +1,5 @@
 ﻿using System;
+using Curso4_ByteBank_01_Variante.Util.Exceptions;
 
 namespace Curso4_ByteBank_01_Variante
 {
@@ -19,51 +20,38 @@ namespace Curso4_ByteBank_01_Variante
 
         public int Agencia { get; }
         public int Numero { get; }
-        public Cliente Titular { get; set; }
+        public Cliente Titular { get; protected set; }
         public static int TotalDeContas { get; private set; }
 
-        #region Saldo
-
-        private double _saldo = 100;
-        public double Saldo
-        {
-            get { return _saldo; }
-            set
-            {
-                if (value >= 0)
-                    _saldo = value;
-            }
-        }
-
-        #endregion
+        public double Saldo { get; private set; } = 100;
 
         #region Métodos
 
-        public bool Sacar(double valor)
+        public void Sacar(double valor)
         {
+            if (valor < 0)
+                throw new ArgumentException("Valor para saque inválido.", nameof(valor));
             if (Saldo < valor)
-            {
-                return false;
-            }
-            else
-            {
-                Saldo -= valor;
-                return true;
-            }
-        }
-
-        public bool Transferir(double valor, ContaCorrente contaDestino)
-        {
-            if (Saldo < valor)
-                return false;
+                throw new SaldoInsuficienteException(Saldo, valor);
 
             Saldo -= valor;
+        }
+
+        public void Transferir(double valor, ContaCorrente contaDestino)
+        {
+            if (valor < 0)
+                throw new ArgumentException("valor para transferência inválido.", nameof(valor));
+
+            Sacar(valor);
+
             contaDestino.Depositar(valor);
-            return true;
         }
 
         public void Depositar(double valor)
         {
+            if (valor < 0)
+                throw new ArgumentException("Valor para saque inválido.", nameof(valor));
+
             Saldo += valor;
         }
 

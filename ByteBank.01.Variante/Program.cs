@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Curso4_ByteBank_01_Variante.Util.Exceptions;
 
 namespace Curso4_ByteBank_01_Variante
 {
@@ -12,17 +13,33 @@ namespace Curso4_ByteBank_01_Variante
 
             try
             {
-                ContaCorrente contaCorrente = new ContaCorrente(numAgencia, numConta, new Cliente(12385762, "Luan Contarin"));
+                ContaCorrente conta1 = new ContaCorrente(numAgencia, numConta, new Cliente(12385762, "Luan Contarin"));
+                ContaCorrente conta2 = new ContaCorrente(1234, 21345, new Cliente(123125123, "Renan Cappelletti"));
+                conta1.Depositar(300);
 
-                EscreverConta(contaCorrente);
+                Console.WriteLine();
+                Console.WriteLine("contas 1/2 antes da transferência:");
+                EscreverConta(conta1);
+                EscreverConta(conta2);
+
+                double valorTransferencia = -1231;
+                conta1.Transferir(valorTransferencia, conta2);
+                
+                Console.WriteLine($"contas 1/2 após transferência no valor de R${valorTransferencia} da conta1 p/ conta2:");
+                EscreverConta(conta1);
+                EscreverConta(conta2);
             }
             catch (ArgumentException ex)
             {
-                Console.WriteLine(ex.GetType().Name + ": " + ex.Message);
+                EscreverErro(ex);
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                EscreverErro(ex);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.GetType().Name + ": " + ex.Message);
+                EscreverErro(ex);
             }
 
             Console.ReadLine();
@@ -34,10 +51,15 @@ namespace Curso4_ByteBank_01_Variante
             Console.WriteLine("--------------------");
             Console.WriteLine("Agência: " + conta.Agencia);
             Console.WriteLine("Conta: " + conta.Numero);
-            Console.WriteLine("Saldo: " + conta.Saldo);
+            Console.WriteLine("Saldo: R$" + conta.Saldo);
             Console.WriteLine("Titular: " + conta?.Titular?.Nome);
             Console.WriteLine("--------------------");
             Console.WriteLine();
+        }
+
+        static void EscreverErro (Exception ex)
+        {
+            Console.WriteLine(ex.GetType().Name + ": " + ex.Message);
         }
 
         static T UserInput<T>(string mensagem)
