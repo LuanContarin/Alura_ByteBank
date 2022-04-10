@@ -4,8 +4,8 @@ namespace Curso4_ByteBank_01_Variante.Util.Exceptions
 {
     public class SaldoInsuficienteException : Exception
     {
-        protected double Saldo { get; }
-        protected double ValorSaque { get; }
+        public double Saldo { get; }
+        public double ValorSaque { get; }
 
         public SaldoInsuficienteException()
         {
