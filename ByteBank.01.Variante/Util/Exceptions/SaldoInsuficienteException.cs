@@ -2,7 +2,7 @@
 
 namespace Curso4_ByteBank_01_Variante.Util.Exceptions
 {
-    public class SaldoInsuficienteException : Exception
+    public class SaldoInsuficienteException : OperacaoFinanceiraException
     {
         public double Saldo { get; }
         public double ValorSaque { get; }
@@ -15,12 +15,16 @@ namespace Curso4_ByteBank_01_Variante.Util.Exceptions
         {
         }
 
+        public SaldoInsuficienteException(string mensagem, Exception innerException)
+            : base(mensagem, innerException)
+        {
+        }
+
         public SaldoInsuficienteException(double saldo, double valorSaque)
             : this("Tentativa de saque no valor de R$" + valorSaque + " com saldo disponível de R$" + saldo + "!")
         {
             Saldo = saldo;
             ValorSaque = valorSaque;
         }
-
     }
 }

@@ -50,10 +50,10 @@ namespace Curso4_ByteBank_01_Variante
             {
                 Sacar(valor);
             }
-            catch (SaldoInsuficienteException)
+            catch (SaldoInsuficienteException ex)
             {
                 ContadorTransferenciasNaoPermitidas++;
-                throw;
+                throw new OperacaoFinanceiraException("Não foi possível realizar a operação.", ex);
             }
 
             contaDestino.Depositar(valor);

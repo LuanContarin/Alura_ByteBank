@@ -8,32 +8,31 @@ namespace Curso4_ByteBank_01_Variante
     {
         static void Main(string[] args)
         {
-            int numAgencia = UserInput<int>("Digite a agência: ");
-            int numConta = UserInput<int>("Digite número da conta: ");
-
             try
             {
-                ContaCorrente conta1 = new ContaCorrente(numAgencia, numConta, new Cliente(12385762, "Luan Contarin"));
-                ContaCorrente conta2 = new ContaCorrente(1234, 21345, new Cliente(123125123, "Renan Cappelletti"));
-                conta1.Depositar(300);
+                Console.WriteLine("Selecione o caso a ser tratado (S: Sacar, T: Transferir)");
+                string operacao = Console.ReadLine();
 
-                Console.WriteLine();
-                Console.WriteLine("contas 1/2 antes da transferência:");
-                EscreverConta(conta1);
-                EscreverConta(conta2);
+                switch (operacao)
+                {
+                    case "S":
+                        ExcecaoSacar();
+                        break;
 
-                double valorTransferencia = -1231;
-                conta1.Transferir(valorTransferencia, conta2);
-                
-                Console.WriteLine($"contas 1/2 após transferência no valor de R${valorTransferencia} da conta1 p/ conta2:");
-                EscreverConta(conta1);
-                EscreverConta(conta2);
+                    case "T":
+                        ExcecaoTransferir();
+                        break;
+
+                    default:
+                        break;
+                }
+
             }
             catch (ArgumentException ex)
             {
                 EscreverErro(ex);
             }
-            catch (SaldoInsuficienteException ex)
+            catch (OperacaoFinanceiraException ex)
             {
                 EscreverErro(ex);
             }
@@ -43,6 +42,31 @@ namespace Curso4_ByteBank_01_Variante
             }
 
             Console.ReadLine();
+        }
+
+        static void ExcecaoSacar()
+        {
+            ContaCorrente conta1 = new ContaCorrente(123, 21351, new Cliente(12345678912, "luan"));
+
+            Console.WriteLine("Ao tentar sacar um valor sem o saldo disponível ira lançar uma exceção" +
+                " e mostrar as informações sensíveis por se tratar de uma operação privada (a conta não" +
+                " se relaciona com nenhuma outra.");
+            Console.WriteLine();
+
+            conta1.Sacar(10000);
+        }
+
+        static void ExcecaoTransferir()
+        {
+            ContaCorrente conta1 = new ContaCorrente(123, 21351, new Cliente(12345678912, "luan"));
+            ContaCorrente conta2 = new ContaCorrente(892, 58263, new Cliente(73151982365, "joao"));
+
+            Console.WriteLine("Ao tentar transferir um valor para outra conta sem o saldo disponível" +
+                " irá lançar uma exceção com uma mensagem genérica, por se tratar de um dado" +
+                " sensível de ser compartilhado em uma operação envolvendo 2 contas.");
+            Console.WriteLine();
+
+            conta1.Transferir(10000, conta2);
         }
 
         static void EscreverConta(ContaCorrente conta)
@@ -57,9 +81,10 @@ namespace Curso4_ByteBank_01_Variante
             Console.WriteLine();
         }
 
-        static void EscreverErro (Exception ex)
+        static void EscreverErro(Exception ex)
         {
             Console.WriteLine(ex.GetType().Name + ": " + ex.Message);
+            Console.WriteLine(ex.StackTrace);
         }
 
         static T UserInput<T>(string mensagem)
