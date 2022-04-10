@@ -20,10 +20,11 @@ namespace Curso4_ByteBank_01_Variante
 
         public int Agencia { get; }
         public int Numero { get; }
+        public double Saldo { get; private set; } = 100;
+        public int ContadorTransferenciasNaoPermitidas { get; private set; }
+        public int ContadorSaquesNaoPermitidos { get; private set; }
         public Cliente Titular { get; protected set; }
         public static int TotalDeContas { get; private set; }
-
-        public double Saldo { get; private set; } = 100;
 
         #region Métodos
 
@@ -32,7 +33,10 @@ namespace Curso4_ByteBank_01_Variante
             if (valor < 0)
                 throw new ArgumentException("Valor para saque inválido.", nameof(valor));
             if (Saldo < valor)
+            {
+                ContadorSaquesNaoPermitidos++;
                 throw new SaldoInsuficienteException(Saldo, valor);
+            }
 
             Saldo -= valor;
         }
@@ -42,7 +46,15 @@ namespace Curso4_ByteBank_01_Variante
             if (valor < 0)
                 throw new ArgumentException("valor para transferência inválido.", nameof(valor));
 
-            Sacar(valor);
+            try
+            {
+                Sacar(valor);
+            }
+            catch (SaldoInsuficienteException)
+            {
+                ContadorTransferenciasNaoPermitidas++;
+                throw;
+            }
 
             contaDestino.Depositar(valor);
         }
