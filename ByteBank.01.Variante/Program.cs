@@ -10,6 +10,7 @@ namespace Curso4_ByteBank_01_Variante
         {
             try
             {
+                Console.WriteLine("Esta aplicação foi feita para tratar de casos de erro e as melhores maneiras de lidar com eles.");
                 Console.WriteLine("Selecione o caso a ser tratado (S: Sacar, T: Transferir)");
                 string operacao = Console.ReadLine();
 
