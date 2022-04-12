@@ -17,7 +17,7 @@ namespace ByteBank.Funcionarios
         public string Cpf { get; private set; }
         public double Salario { get; protected set; }
 
-        public abstract double GetBonificacao();
-        public abstract void AumentarSalario();
+        internal protected abstract double GetBonificacao();
+        internal protected abstract void AumentarSalario();
     }
 }
