@@ -4,7 +4,7 @@ namespace ByteBank.Funcionarios
 {
     public class GerenteDeConta : FuncionarioAutenticavel
     {
-        public GerenteDeConta(string cpf) : base(cpf, 2000)
+        public GerenteDeConta(decimal cpf) : base(cpf, 2000)
         {
         }
 

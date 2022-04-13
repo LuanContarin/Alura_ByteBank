@@ -4,7 +4,7 @@ namespace ByteBank.Funcionarios
 {
     public class Diretor : FuncionarioAutenticavel
     {
-        public Diretor(string cpf) : base(cpf, 7000)
+        public Diretor(decimal cpf) : base(cpf, 7000)
         {
         }
 

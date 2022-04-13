@@ -8,7 +8,7 @@ namespace ByteBank.Funcionarios
     {
         private readonly AutenticacaoHelper _autenticacaoHelper = new AutenticacaoHelper();
 
-        protected FuncionarioAutenticavel(string cpf, double salario) : base(cpf, salario)
+        protected FuncionarioAutenticavel(decimal cpf, double salario) : base(cpf, salario)
         {
         }
 

@@ -4,7 +4,7 @@ namespace ByteBank.Funcionarios
 {
     public class Desenvolvedor : FuncionarioBase
     {
-        public Desenvolvedor(string cpf) : base(cpf, 3500)
+        public Desenvolvedor(decimal cpf) : base(cpf, 3500)
         {
         }
 

@@ -4,7 +4,7 @@ namespace ByteBank.Funcionarios
 {
     public class Auxiliar : FuncionarioBase
     {
-        public Auxiliar(string cpf) : base(cpf, 2000)
+        public Auxiliar(decimal cpf) : base(cpf, 2000)
         {
         }
 

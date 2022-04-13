@@ -1,11 +1,16 @@
 ﻿using System;
+using ByteBank.Modelos.Util;
 
 namespace ByteBank.Funcionarios
 {
     public abstract class FuncionarioBase
     {
-        protected FuncionarioBase(string cpf, double salario)
+        private readonly CpfValidator _cpfValidator = new CpfValidator();
+
+        protected FuncionarioBase(decimal cpf, double salario)
         {
+            _cpfValidator.ValidarTamanhoCpf(cpf);
+
             Cpf = cpf;
             Salario = salario;
             TotalFuncionarios++;
@@ -14,7 +19,7 @@ namespace ByteBank.Funcionarios
         public static int TotalFuncionarios { get; private set; }
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Cpf { get; private set; }
+        public decimal Cpf { get; private set; }
         public double Salario { get; protected set; }
 
         internal protected abstract double GetBonificacao();

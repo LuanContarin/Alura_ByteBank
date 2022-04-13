@@ -3,8 +3,19 @@ using ByteBank.Modelos.Util;
 
 namespace ByteBank.Modelos
 {
+    /// <summary>
+    /// Define uma conta-corrente do banco ByteBank.
+    /// </summary>
     public class ContaCorrente
     {
+        /// <summary>
+        /// Cria uma instância da classe <see cref="ContaCorrente"/> com as informações especificadas.
+        /// </summary>
+        /// <param name="agencia"> Número da agência da conta. Deve ser um número maior que 0. </param>
+        /// <param name="numero"> Número único da conta. Deve ser um número maior que 0. </param>
+        /// <param name="titular"> Responsável pela conta. </param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public ContaCorrente(int agencia, int numero, Cliente titular)
         {
             if (agencia <= 0)
@@ -17,7 +28,7 @@ namespace ByteBank.Modelos
             Titular = titular ?? throw new ArgumentNullException(nameof(titular), "A conta deve possuir um titular.");
             TotalDeContas++;
         }
-
+        
         public int Agencia { get; }
         public int Numero { get; }
         public double Saldo { get; private set; } = 100;
@@ -28,6 +39,12 @@ namespace ByteBank.Modelos
 
         #region Métodos
 
+        /// <summary>
+        /// Saca da conta-corrente o valor passado.
+        /// </summary>
+        /// <param name="valor"> Valor para saque. Não pode ser negativo. </param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="SaldoInsuficienteException"></exception>
         public void Sacar(double valor)
         {
             if (valor < 0)
@@ -41,6 +58,13 @@ namespace ByteBank.Modelos
             Saldo -= valor;
         }
 
+        /// <summary>
+        /// Transfere o valor passado para outra conta.
+        /// </summary>
+        /// <param name="valor"> Valor para transferência. </param>
+        /// <param name="contaDestino"> Conta a qual estará transferindo o valor. </param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="OperacaoFinanceiraException"></exception>
         public void Transferir(double valor, ContaCorrente contaDestino)
         {
             if (valor < 0)
@@ -59,6 +83,11 @@ namespace ByteBank.Modelos
             contaDestino.Depositar(valor);
         }
 
+        /// <summary>
+        /// Deposita um valor em uma conta.
+        /// </summary>
+        /// <param name="valor"> Valor de depósito. Não pode ser negativo. </param>
+        /// <exception cref="ArgumentException"></exception>
         public void Depositar(double valor)
         {
             if (valor < 0)
