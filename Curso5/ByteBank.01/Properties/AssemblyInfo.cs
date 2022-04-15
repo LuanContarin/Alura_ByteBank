@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ProgramaTeste")]
+[assembly: AssemblyTitle("ByteBank.01")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ProgramaTeste")]
+[assembly: AssemblyProduct("ByteBank.01")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e230e0aa-e743-42a8-b09a-b3008d2a23d1")]
+[assembly: Guid("0b6b903a-8f7e-437b-ace1-9d68d7c2d34a")]
 
 // Version information for an assembly consists of the following four values:
 //

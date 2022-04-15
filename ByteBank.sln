@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso2", "Curso2", "{DA3E8C20-E2E0-4CE4-ACD8-5C68DB6F0F03}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.ByteBank", "Curso2\01.ByteBank\01.ByteBank.csproj", "{CFA24924-73B7-4E3E-92A6-F06A37500EBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.ByteBank", "Curso2\02.ByteBank\02.ByteBank.csproj", "{38DDA346-EAA0-41BA-8C54-49314840A6B4}"
@@ -10,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.ByteBank", "Curso2\03.ByteBank\03.ByteBank.csproj", "{417C0333-28F7-43D3-B6AD-4362D2582144}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.ByteBank", "Curso2\04.ByteBank\04.ByteBank.csproj", "{F6DD93CC-F8CD-46CB-99A2-B9D5D3C14A05}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso2", "Curso2", "{DA3E8C20-E2E0-4CE4-ACD8-5C68DB6F0F03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso3", "Curso3", "{B684B1D0-CDA5-43FC-9958-92F7FFEFB431}"
 EndProject
@@ -21,13 +21,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.02", "Curso3\ByteB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso4", "Curso4", "{CEBD362D-8091-448A-8F81-584FB371C498}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.01", "ByteBank.01\ByteBank.01.csproj", "{14538E62-EE7F-4777-9C9F-34685E02EE86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.01", "Curso4\ByteBank.01\ByteBank.01.csproj", "{14538E62-EE7F-4777-9C9F-34685E02EE86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.01.Variante", "ByteBank.01.Variante\ByteBank.01.Variante.csproj", "{EC20FBE9-E21E-4FB8-8CCB-AA54E97D3218}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.01.Variante", "Curso4\ByteBank.01.Variante\ByteBank.01.Variante.csproj", "{EC20FBE9-E21E-4FB8-8CCB-AA54E97D3218}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Curso5", "Curso5", "{199A33F3-914C-4B25-B0C1-36FC714EEAAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.Modelos", "ByteBank.Modelos\ByteBank.Modelos.csproj", "{FF90247B-64A8-4ED8-86C4-0F9D061A9FFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.Modelos", "Curso5\ByteBank.Modelos\ByteBank.Modelos.csproj", "{FF90247B-64A8-4ED8-86C4-0F9D061A9FFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBank.01", "Curso5\ByteBank.01\ByteBank.01.csproj", "{0B6B903A-8F7E-437B-ACE1-9D68D7C2D34A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{FF90247B-64A8-4ED8-86C4-0F9D061A9FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF90247B-64A8-4ED8-86C4-0F9D061A9FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF90247B-64A8-4ED8-86C4-0F9D061A9FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B6B903A-8F7E-437B-ACE1-9D68D7C2D34A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B6B903A-8F7E-437B-ACE1-9D68D7C2D34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B6B903A-8F7E-437B-ACE1-9D68D7C2D34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B6B903A-8F7E-437B-ACE1-9D68D7C2D34A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{14538E62-EE7F-4777-9C9F-34685E02EE86} = {CEBD362D-8091-448A-8F81-584FB371C498}
 		{EC20FBE9-E21E-4FB8-8CCB-AA54E97D3218} = {CEBD362D-8091-448A-8F81-584FB371C498}
 		{FF90247B-64A8-4ED8-86C4-0F9D061A9FFF} = {199A33F3-914C-4B25-B0C1-36FC714EEAAF}
+		{0B6B903A-8F7E-437B-ACE1-9D68D7C2D34A} = {199A33F3-914C-4B25-B0C1-36FC714EEAAF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {749683EF-642F-4F61-8035-B07E4E7007FD}
