@@ -1,7 +1,7 @@
 ﻿using System;
 using Humanizer;
 
-namespace ByteBank._01
+namespace ByteBank_01
 {
     internal class Program
     {
