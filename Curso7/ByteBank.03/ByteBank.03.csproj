@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Curso5\ByteBank.Modelos\ByteBank.Modelos.csproj">
+    <ProjectReference Include="..\..\Curso5\ByteBank.Modelos\ByteBank.Modelos.csproj">
       <Project>{ff90247b-64a8-4ed8-86c4-0f9d061a9fff}</Project>
       <Name>ByteBank.Modelos</Name>
     </ProjectReference>
